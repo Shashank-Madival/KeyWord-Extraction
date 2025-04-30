@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Keyword Extraction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS (Optional) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --bg-color: #1e1e1e;
+      --text-color: #ffffff;
+      --accent-color: #4CAF50;
+      --input-bg: #2c2c2c;
+      --input-border: #444;
+      --input-focus: #4CAF50;
+      --transition-speed: 0.3s;
+      --border-radius: 8px;
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background-color: var(--bg-color);
+      padding: 3% 5%;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--accent-color);
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input[type="file"],
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: var(--border-radius);
+      color: var(--text-color);
+      transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    }
+
+    input[type="file"]::file-selector-button {
+      background-color: var(--accent-color);
+      color: var(--text-color);
+      border: none;
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background-color var(--transition-speed);
+    }
+
+    input[type="file"]::file-selector-button:hover {
+      background-color: #45a049; /* Slightly darker shade */
+    }
+
+    input:focus {
+      border-color: var(--input-focus);
+      box-shadow: 0 0 5px var(--input-focus);
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--accent-color);
+      border: none;
+      border-radius: var(--border-radius);
+      color: var(--text-color);
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color var(--transition-speed);
+    }
+
+    button:hover {
+      background-color: #45a049; /* Slightly darker shade */
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background-color: var(--input-border);
+      margin: 30px 0;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Keyword Extraction</h2>
+    <form method="POST" action="/extract_keywords" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="document">Upload Document:</label>
+        <input type="file" name="file" class="form-control" id="document">
+      </div>
+      <button type="submit" class="btn btn-primary">Extract Keywords</button>
+    </form>
+    <hr>
+    <form method="POST" action="/search_keywords">
+      <div class="form-group">
+        <label for="search">Search Keywords:</label>
+        <input type="text" name="search" class="form-control" id="search">
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+</body>
+</html>
